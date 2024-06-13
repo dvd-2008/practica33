@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataEmpresa">
+  <DataContextMoniker Name="/DataEmpresaDataContext" />
+  <nestedChildShapes>
+    <classShape Id="59a748bf-c5a6-428d-848a-43251079b262" absoluteBounds="3.5, 0.875, 2, 1.7708968098958329">
+      <DataClassMoniker Name="/DataEmpresaDataContext/Pedidos" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b86944c6-e26b-4aab-a770-7d6dbdc4288a" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8e25ba0c-72c8-4161-b007-0cd782464e71" absoluteBounds="0.75, 1, 2, 1.5785953776041663">
+      <DataClassMoniker Name="/DataEmpresaDataContext/Producto" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6be69b09-abd3-4c03-9c14-8e86a6b4c311" absoluteBounds="0.765, 1.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.78929768880208); (3.5 : 1.78929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataEmpresaDataContext/Producto/Producto_Pedidos" />
+      <nodes>
+        <classShapeMoniker Id="8e25ba0c-72c8-4161-b007-0cd782464e71" />
+        <classShapeMoniker Id="59a748bf-c5a6-428d-848a-43251079b262" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

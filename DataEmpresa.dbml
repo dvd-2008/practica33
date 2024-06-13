@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Empresa" Class="DataEmpresaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.Pedidos" Member="Pedidos">
+    <Type Name="Pedidos">
+      <Column Name="id_pedido" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="fecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="id_producto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="precio" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="Producto_Pedidos" Member="Producto" ThisKey="id_producto" OtherKey="id_producto" Type="Producto" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Producto" Member="Producto">
+    <Type Name="Producto">
+      <Column Name="id_producto" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="precio" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Producto_Pedidos" Member="Pedidos" ThisKey="id_producto" OtherKey="id_producto" Type="Pedidos" />
+    </Type>
+  </Table>
+  <Function Name="dbo.ActualizarPedido" Method="ActualizarPedido">
+    <Parameter Name="id_pedido" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fecha" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="id_producto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="cantidad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="precio" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.LeerProducto" Method="LeerProducto">
+    <Parameter Name="id_producto" Type="System.Int32" DbType="Int" />
+    <ElementType Name="LeerProductoResult">
+      <Column Name="id_producto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="precio" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ActualizarProducto" Method="ActualizarProducto">
+    <Parameter Name="id_producto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="precio" Type="System.Double" DbType="Float" />
+    <Parameter Name="cantidad" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CrearPedido" Method="CrearPedido">
+    <Parameter Name="fecha" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="id_producto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="cantidad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="precio" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CrearProducto" Method="CrearProducto">
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="precio" Type="System.Double" DbType="Float" />
+    <Parameter Name="cantidad" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.EliminarPedido" Method="EliminarPedido">
+    <Parameter Name="id_pedido" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.EliminarProducto" Method="EliminarProducto">
+    <Parameter Name="id_producto" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.LeerPedido" Method="LeerPedido">
+    <Parameter Name="id_pedido" Type="System.Int32" DbType="Int" />
+    <ElementType Name="LeerPedidoResult">
+      <Column Name="id_pedido" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="id_producto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="precio" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.LeerPedidos" Method="LeerPedidos">
+    <ElementType Name="LeerPedidosResult">
+      <Column Name="id_pedido" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="id_producto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="precio" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CrearPedidos" Method="CrearPedidos">
+    <Parameter Name="id_pedido" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fecha" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="id_producto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="cantidad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="precio" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.LeerProductos" Method="LeerProductos">
+    <ElementType Name="LeerProductosResult">
+      <Column Name="id_producto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="precio" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CrearProductos" Method="CrearProductos">
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="precio" Type="System.Double" DbType="Float" />
+    <Parameter Name="cantidad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="id_producto" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CrearProductos1" Method="CrearProductos1">
+    <Parameter Name="id_producto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="precio" Type="System.Double" DbType="Float" />
+    <Parameter Name="cantidad" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
